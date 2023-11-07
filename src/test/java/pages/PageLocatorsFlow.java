@@ -7,6 +7,8 @@ public class PageLocatorsFlow extends BasePage{
     //Step 1 - Sign Up using Google
     public String homePageUrl = "https://www.rokomari.com/";
     public String homePageTitle = " Buy Book Online - Best Online Book Shop in Bangladesh | Rokomari.com ";
+
+    public By crossAlert = By.xpath("//div[@id='js--quiz-image-popup']//i[@class='ion-close-round']");
     public By loginPageButton = By.xpath("//a[normalize-space()='Sign in']");
     public String loginPageUrl = "https://www.rokomari.com/login";
     public String loginPageTitle = " Login To Rokomari | Rokomari.com ";
@@ -21,7 +23,8 @@ public class PageLocatorsFlow extends BasePage{
     public By inputGmailAddress = By.xpath("//input[@id='identifierId']");
     public By clickNextToPassword = By.xpath("//span[normalize-space()='Next']");
     public By inputPassword = By.xpath("//input[@name='Passwd']");
-    public By clickNextToLogin = By.xpath("(//div[@class='VfPpkd-RLmnJb'])[2]");
+    //public By clickNextToLogin = By.xpath("(//div[@class='VfPpkd-RLmnJb'])[2]");
+    public By getClickNextToLogin2 = By.xpath("//*[@id=\"passwordNext\"]/div/button/span");
     public By loggedInAccountDetails = By.xpath("//span[@class='user-name']");
 
 
@@ -34,8 +37,8 @@ public class PageLocatorsFlow extends BasePage{
 
 
     //Step 4 - Filter  Categories like সমকালীন উপন্যাস, রচনা সংকলন ও সমগ্র
-    public By filterSomokalin = By.cssSelector("label[for='rok-filter-categoryIds-677']");
-    public By filterRochona = By.cssSelector("label[for='rok-filter-categoryIds-1321']");
+    public By filterSomokalin = By.xpath("//label[contains(text(),'সমকালীন উপন্যাস')]");
+    public By filterRochona = By.xpath("//label[contains(text(),'রচনা সংকলন ও সমগ্র')]");
 
 
     //Step 5 - Scroll Down and go to Next Page (IF Have)
@@ -59,13 +62,14 @@ public class PageLocatorsFlow extends BasePage{
 
 
     //Step 9 - Provide your Shipping Information
-    public By inputPhone = By.xpath("//label[normalize-space()='Phone No']");
-    public By inputAlternatePhone = By.xpath("//label[normalize-space()='Alternative Phone No']");
+    public By inputName = By.xpath("(//input[@id='name'])[1]");
+    public By inputPhone = By.xpath("(//input[@id='phone'])[1]");
+    public By inputAlternatePhone = By.xpath("(//input[@id='phone2'])[1]");
     public By selectCountry = By.xpath("//select[@id='js--country']");
     public By selectCity = By.xpath("//select[@id='js--city']");
     public By selectArea = By.xpath("//select[@id='js--area']");
-    public By inputAddress = By.xpath("//label[normalize-space()='Address']");
-    public By selectPaymentMethod = By.xpath("//img[@alt='Pay by Bkash']");
+    public By inputAddress = By.xpath("(//textarea[@id='address'])[1]");
+    public By selectPaymentMethod = By.xpath("//label[@for='B_KASH']");
 
 
     //Step 10 - Log out

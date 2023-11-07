@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -53,11 +54,12 @@ public class BasePage{
         action.scrollToElement(getElement(locator)).build().perform();
     }
 
-    public String otpInput(){
+
+    /*public String otpInput(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter OTP: ");
         String otp = scanner.next();
         return otp;
-    }
+    }*/
 
 }

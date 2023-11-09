@@ -4,7 +4,7 @@
 This repository contains comprehensive end-to-end automated test scripts for the [rokomari.com](https://www.rokomari.com/) website. The automation covers a wide array of functionalities, including user authentication, navigation, book selection, adding items to the cart, providing shipping information, selecting payment methods, and more. The automation scripts are implemented using Selenium WebDriver with Java, JavaScript, HTML, and CSS.
 ## Sites and Links
 
-Website: [rokomari.com](https://www.rokomari.com/)
+Testing Website: [rokomari.com](https://www.rokomari.com/)
 
 Automation Report: [Test Report](https://rokomaritest.netlify.app/)
 ## Roadmap

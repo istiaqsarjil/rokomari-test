@@ -1,20 +1,21 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilities.DriverSetup;
 
+import java.io.ByteArrayInputStream;
+import java.time.Duration;
 import java.util.Scanner;
 
 import static utilities.DriverSetup.getDriver;
 
-public class BasePage{
-
+public class BasePage extends DriverSetup{
 
     public WebElement getElement(By locator){
         return getDriver().findElement(locator);
@@ -53,6 +54,11 @@ public class BasePage{
         Actions action = new Actions(getDriver());
         action.scrollToElement(getElement(locator)).build().perform();
     }
+
+    public void screenShot(String name){
+        Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
+    }
+
 
 
     /*public String otpInput(){

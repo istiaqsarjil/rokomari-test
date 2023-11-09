@@ -30,18 +30,35 @@
     <artifactId>selenium-java</artifactId>
     <version>4.12.1</version>
   </dependency>
+
+    <!-- allure for report generate -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.24.0</version>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>8</source>
-          <target>8</target>
-        </configuration>
-      </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.1.2</version>
+      <configuration>
+        <suiteXmlFiles>
+          <suiteXmlFile>testng.xml</suiteXmlFile>
+        </suiteXmlFiles>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <source>8</source>
+        <target>8</target>
+      </configuration>
+    </plugin>
     </plugins>
   </build>
 

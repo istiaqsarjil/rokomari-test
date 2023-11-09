@@ -1,12 +1,13 @@
 package testcases;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import pages.PageLocatorsFlow;
+import pages.*;
 import utilities.DriverSetup;
 
 import java.time.Duration;
@@ -16,142 +17,103 @@ import java.util.Scanner;
 
 public class LoginToBookOrderTestFlow extends DriverSetup {
 
-    PageLocatorsFlow pageLocatorsFlow = new PageLocatorsFlow();
+    Homepage homepage = new Homepage();
+    LoginPage loginPage = new LoginPage();
+    BooksPage booksPage = new BooksPage();
+    CartPage cartPage = new CartPage();
+    OrderPage orderPage = new OrderPage();
+
 
 
     @Test
     public void testLoginAndOrderFLow() throws InterruptedException {
-        getDriver().get(pageLocatorsFlow.homePageUrl);
+        getDriver().get(homepage.homePageUrl);
+        homepage.screenShot("Homepage Before Login");
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.loginPageButton);
+
+        homepage.clickOnElement(homepage.loginPageButton);
+        loginPage.screenShot("Login Page");
 
         /*//Login with existing account
         pageLocatorsFlow.textInput(pageLocatorsFlow.inputAccountEmail,"istiaq.test@gmail.com");
         pageLocatorsFlow.clickOnElement(pageLocatorsFlow.loginNextButton);*/
 
-        //Thread.sleep(10000);
-
 
         //Login by Google account
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.googleButton);
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputGmailAddress,"istiaq.test@gmail.com");
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.clickNextToPassword);
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputPassword,"$@&123Test");
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.getClickNextToLogin2);
+        loginPage.clickOnElement(loginPage.googleButton);
+        loginPage.screenShot("Google Login View - Input Email");
+        loginPage.textInput(loginPage.inputGmailAddress, "istiaq.test@gmail.com");
+        loginPage.clickOnElement(loginPage.clickNextToPassword);
+        loginPage.screenShot("Google Login View - Input Password");
+        loginPage.textInput(loginPage.inputPassword, "$@&123Test");
+        loginPage.clickOnElement(loginPage.getClickNextToLogin2);
+
 
         //action.clickAndHold(pageLocatorsFlow.getElement(pageLocatorsFlow.selectWriter)).build().perform();
 
         Thread.sleep(5000);
         getDriver().navigate().refresh();
 
-        pageLocatorsFlow.hoverOnElement(pageLocatorsFlow.selectWriter);
+        homepage.screenShot("Homepage After Login");
+        homepage.hoverOnElement(homepage.selectWriter);
+        Thread.sleep(500);
+        homepage.screenShot("Hover On Writer");
+        homepage.clickOnElement(homepage.selectHumayunAhmed);
 
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.selectHumayunAhmed);
+        booksPage.screenShot("Book page view - Humayun Ahmed");
+        js.executeScript("window.scroll(0,600)");
+        Thread.sleep(2000);
+        booksPage.clickOnElement(booksPage.filterRochona);
+        booksPage.screenShot("Book page view - After filter -Rochona");
 
         js.executeScript("window.scroll(0,600)");
         Thread.sleep(2000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.filterRochona);
-
-        js.executeScript("window.scroll(0,600)");
-        Thread.sleep(2000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.filterSomokalin);
+        booksPage.clickOnElement(booksPage.filterSomokalin);
+        booksPage.screenShot("Book page view - After filter -Somokalin");
 
         js.executeScript("window.scroll(0,4400)");
         Thread.sleep(2000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.nextButton);
+        booksPage.clickOnElement(booksPage.nextButton);
+        booksPage.screenShot("Going to Next page");
 
         js.executeScript("window.scroll(0,500)");
         Thread.sleep(1000);
-        pageLocatorsFlow.hoverOnElement(pageLocatorsFlow.addBookByXPath);
+        booksPage.hoverOnElement(booksPage.addBookByXPath);
+        booksPage.screenShot("Hover to view 'Add to Cart' ");
         Thread.sleep(2000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.addToCartBook);
+        booksPage.clickOnElement(booksPage.addToCartBook);
+        booksPage.screenShot("Books added to cart");
 
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.cartIcon);
 
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.placeOrderButton);
+        cartPage.clickOnElement(cartPage.cartIcon);
+        cartPage.screenShot("Cart page view");
+        cartPage.clickOnElement(cartPage.placeOrderButton);
         Thread.sleep(1000);
+        orderPage.screenShot("Order page view");
+
 
         //input details
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputName,"Sarj");
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputPhone,"01234567890");
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputAlternatePhone,"09876543210");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectCountry,"Bangladesh");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectCity,"ঢাকা");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectArea,"শাহজাদপুর");
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputAddress,"Shahjadpur, Dhaka.");
+        orderPage.textInput(orderPage.inputName, "Sarj");
+        orderPage.textInput(orderPage.inputPhone, "01234567890");
+        orderPage.textInput(orderPage.inputAlternatePhone, "09876543210");
+        orderPage.selectWithVisibleText(orderPage.selectCountry, "Bangladesh");
+        orderPage.selectWithVisibleText(orderPage.selectCity, "ঢাকা");
+        orderPage.selectWithVisibleText(orderPage.selectArea, "শাহজাদপুর");
+        orderPage.textInput(orderPage.inputAddress, "Shahjadpur, Dhaka.");
+        orderPage.screenShot("Input User Details");
+
         js.executeScript("window.scroll(0,700)");
         Thread.sleep(1000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.selectPaymentMethod);
+        orderPage.clickOnElement(orderPage.selectPaymentMethod);
+        orderPage.screenShot("Select Payment Method");
 
         //Logout
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.loggedInAccountDetails);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.logOut);
-
-
-    }
-
-    public String otpInput(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter OTP: ");
-        String otp = scanner.next();
-        return otp;
-    }
-
-    @Test
-    public void myTestMethod() {
-        // Your test logic before user input
-
-        // Reading user input from the console
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter some input: ");
-        String userInput = scanner.nextLine();
-        System.out.println("You entered: " + userInput);
-
-        // Your test logic after user input
-    }
-
-    @Test
-    public void testFromHome() throws InterruptedException {
-
-        getDriver().get(pageLocatorsFlow.homePageUrl);
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.crossAlert);
-
-        pageLocatorsFlow.hoverOnElement(pageLocatorsFlow.selectWriter);
-
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.selectHumayunAhmed);
-
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.filterSomokalin);
-        Thread.sleep(5000);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.filterRochona);
-
-
-        js.executeScript("window.scroll(0,4400)");
-
-        pageLocatorsFlow.hoverOnElement(pageLocatorsFlow.addBookByXPath);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.addToCartBook);
-
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.cartIcon);
-
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.placeOrderButton);
-
-        //input details
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputPhone,"01234567890");
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputAlternatePhone,"09876543210");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectCountry,"Bangladesh");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectCity,"ঢাকা");
-        pageLocatorsFlow.selectWithVisibleText(pageLocatorsFlow.selectArea,"শাহজাদপুর");
-        pageLocatorsFlow.textInput(pageLocatorsFlow.inputAddress,"Shahjadpur, Dhaka.");
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.selectPaymentMethod);
-
-        //Logout
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.loggedInAccountDetails);
-        pageLocatorsFlow.clickOnElement(pageLocatorsFlow.logOut);
+        homepage.clickOnElement(homepage.loggedInAccountDetails);
+        homepage.clickOnElement(homepage.logOut);
+        homepage.screenShot("After logout, homepage view");
 
     }
-
-
 
 }

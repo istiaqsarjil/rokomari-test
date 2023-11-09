@@ -7,8 +7,9 @@ public class PageLocatorsFlow extends BasePage{
     //Step 1 - Sign Up using Google
     public String homePageUrl = "https://www.rokomari.com/";
     public String homePageTitle = " Buy Book Online - Best Online Book Shop in Bangladesh | Rokomari.com ";
-
     public By crossAlert = By.xpath("//div[@id='js--quiz-image-popup']//i[@class='ion-close-round']");
+
+
     public By loginPageButton = By.xpath("//a[normalize-space()='Sign in']");
     public String loginPageUrl = "https://www.rokomari.com/login";
     public String loginPageTitle = " Login To Rokomari | Rokomari.com ";
@@ -25,6 +26,7 @@ public class PageLocatorsFlow extends BasePage{
     public By inputPassword = By.xpath("//input[@name='Passwd']");
     //public By clickNextToLogin = By.xpath("(//div[@class='VfPpkd-RLmnJb'])[2]");
     public By getClickNextToLogin2 = By.xpath("//*[@id=\"passwordNext\"]/div/button/span");
+
     public By loggedInAccountDetails = By.xpath("//span[@class='user-name']");
 
 

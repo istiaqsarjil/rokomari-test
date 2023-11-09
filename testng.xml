@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="D:/SQA/Class 22-23 - ALL Java Works/Automation Starts with Selenium/rokomari-test">
+        <classes>
+            <class name="testcases.LoginToBookOrderTestFlow">
+                <methods>
+                    <include name="testLoginAndOrderFLow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

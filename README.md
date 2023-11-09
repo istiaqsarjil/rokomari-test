@@ -11,26 +11,37 @@ Automation Report: [Test Report](https://rokomaritest.netlify.app/)
 
 - **Login:** 
 Automated login process into the Rokomari.com website.
+
 - **Select লেখক from the menu:** 
 Navigation to the 'লেখক' (Authors) section.
+
 - **Select হুমায়ুন আহমেদ:** 
 Selection of specific author 'হুমায়ুন আহমেদ'.
+
 - **Filter Categories:** 
 Filtering books by categories such as 'সমকালীন উপন্যাস', 'রচনা সংকলন ও সমগ্র'.
+
 - **Scroll Down and Next Page:** 
 Scrolling through the book list and navigating to the next page if available.
+
 - **Add to Cart:** 
 Adding any book to the shopping cart.
+
 - **View Cart:** 
 Clicking on the cart icon to view the items in the cart.
+
 - **Go to Shipping Page:** 
 Proceeding to the shipping page for checkout.
+
 - **Provide Shipping Information:** 
 Entering necessary shipping details.
+
 - **Select Payment Method:** 
 Choosing a payment method for the order.
+
 - **Place Order:** 
 Completing the purchase process by placing the order. (Did not order as it will create real order.)
+
 - **Logout:** 
 Finally Logout from the site.
 

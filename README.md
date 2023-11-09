@@ -6,7 +6,10 @@ This repository contains comprehensive end-to-end automated test scripts for the
 
 Testing Website: [rokomari.com](https://www.rokomari.com/)
 
-Automation Report: [Test Report](https://rokomaritest.netlify.app/)
+Manual Test Cases: Testcases on Login Page and Search Option on Homepage. Click the link below to see the testcases.
+                   [Manual Testcases](https://docs.google.com/spreadsheets/d/1SyE0OTIHtSaC9Pu3zQGr3OeZIfk6-5C2lmrnfKTFh58/edit?usp=sharing) 
+
+Automation Report: [Automation Test Report](https://rokomaritest.netlify.app/)
 ## Roadmap
 
 - **Login:** 

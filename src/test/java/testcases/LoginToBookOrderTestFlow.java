@@ -73,12 +73,12 @@ public class LoginToBookOrderTestFlow extends DriverSetup {
         booksPage.clickOnElement(booksPage.filterSomokalin);
         booksPage.screenShot("Book page view - After filter -Somokalin");
 
-        js.executeScript("window.scroll(0,4400)");
+        js.executeScript("window.scroll(0,4200)");
         Thread.sleep(2000);
         booksPage.clickOnElement(booksPage.nextButton);
         booksPage.screenShot("Going to Next page");
 
-        js.executeScript("window.scroll(0,500)");
+        js.executeScript("window.scroll(0,200)");
         Thread.sleep(1000);
         booksPage.hoverOnElement(booksPage.addBookByXPath);
         booksPage.screenShot("Hover to view 'Add to Cart' ");

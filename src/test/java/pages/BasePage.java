@@ -66,6 +66,6 @@ public class BasePage extends DriverSetup{
         System.out.println("Enter OTP: ");
         String otp = scanner.next();
         return otp;
-    }*/
+    }*///
 
 }
